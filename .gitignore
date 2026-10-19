@@ -38,3 +38,11 @@
 #*.[pP][oO][tT][mM]
 #*.[pP][pP][sS]
 #*.[pP][pP][sS][mM]
+
+
+.vs/
+*.user
+*.userosscache
+*.suo
+[Bb]in/
+[Oo]bj/
