@@ -6,7 +6,7 @@ Public Enum UserRole
 End Enum
 Public Class Users
     <Key>
-    Public Property Id As Guid = New Guid()
+    Public Property Id As Guid = Guid.NewGuid()
 
     Public Property WorkerId As Guid?
 

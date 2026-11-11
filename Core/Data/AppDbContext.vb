@@ -62,6 +62,15 @@ Public Class AppDbContext
                                                              .HasForeignKey(Function(wra) wra.RoleId) _
                                                              .OnDelete(DeleteBehavior.Cascade)
                                                     End Sub)
+        modelBuilder.Entity(Of WorkSession)(Sub(entity)
+                                                entity.Property(Function(ws) ws.SessionName) _
+                                         .HasColumnName("SessionName") _
+                                         .HasConversion(Of String)() _
+                                         .HasMaxLength(15)
+                                                entity.ToTable(Sub(t) t.HasCheckConstraint("CK_WorkSession_SessionName", """SessionName"" IN ('Morning', 'Afternoon', 'Night')"))
+                                                entity.ToTable(Sub(t) t.HasCheckConstraint("CK_WorkSession_DurationMinutes", """DurationMinutes"" > 0"))
+
+                                            End Sub)
 
         modelBuilder.Entity(Of WorkerShiftAssignment)(Sub(entity)
 
@@ -194,7 +203,7 @@ Public Class AppDbContext
                                                  entity.HasOne(Function(nl) nl.Worker) _
                                                           .WithMany(Function(w) w.NotificationLogs) _
                                                           .HasForeignKey(Function(nl) nl.WorkerId) _
-                                                          .OnDelete(DeleteBehavior.Cascade)
+                                                          .OnDelete(DeleteBehavior.SetNull)
                                              End Sub)
 
 

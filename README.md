@@ -43,3 +43,18 @@ Default Database Name: worker_task_db with 11 tables.
 - [Audit](./Core/Entities/Audit.vb): Whenever a manager alters a schedule or cancels a task, it logs the action.
 - [Notification](./Core/Entities/Notification.vb): Tracks automated messages sent out to workers and monitors if they are Pending, Sent, or Failed.
 
+
+## Services
+- Allocation
+	- nn
+- Management
+	- nn
+- Utilities
+	- nn
+
+
+## Todo
+- TableLayoutPanel
+- FlowLayoutPanel
+- TabControl
+- SplitContainer
